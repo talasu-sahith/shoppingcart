@@ -1,0 +1,52 @@
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+main {
+  margin: 1.5rem 1.5rem;
+}
+main .homePage {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.filters {
+  margin-right: 1rem;
+}
+.filters button {
+  border-color: transparent;
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+.filters button:hover {
+  color: black;
+  background-color: grey;
+}
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.prodArticle {
+  margin: 0.65rem 0.25rem;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 3%;
+}
+.prodArticle h4 {
+  text-align: center;
+}
+.prodArticle img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.prodArticle p {
+  color: green;
+  font-weight: 500;
+  height: 15px;
+}
+.prodArticle span {
+  color: black;
+  margin-left: 0.75rem;
+}
