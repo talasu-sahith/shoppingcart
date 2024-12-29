@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 // import faker from "faker";
 import { faker } from "@faker-js/faker";
 import reducer from "./reducer";
-
+import { AddToCart } from "./actions";
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
@@ -13,11 +13,15 @@ const AppProvider = ({ children }) => {
     image: faker.image.url(),
     inStock: faker.helpers.arrayElement([0, 2, 4, 6, 8, 9]),
     fastDelivery: faker.datatype.boolean(),
-    ratings: faker.helpers.arrayElement[(0, 1, 2, 3, 4, 5)],
+    ratings: faker.helpers.arrayElement([0, 1, 2, 3, 4, 5]),
   }));
   const [state, dispatch] = useReducer(reducer, {
     products: products,
+    cart: [],
   });
+  const handleAddcart = () => {
+    dispatch({ type: AddToCart });
+  };
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
 };
 

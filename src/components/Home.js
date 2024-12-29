@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../context/context";
+import Filter from "./Filter";
 import Product from "./Product";
 
 const Home = () => {
@@ -7,9 +8,7 @@ const Home = () => {
   return (
     <main>
       <div className="homePage">
-        <div className="filters">
-          <button>Filter by fast delivery</button>
-        </div>
+        <Filter />
         <div className="articles">
           {products.map((item) => {
             return <Product {...item} key={item.fakeID} />;

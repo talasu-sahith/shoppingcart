@@ -6,8 +6,8 @@ main {
   margin: 1.5rem 1.5rem;
 }
 main .homePage {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
 }
 .filters {
   margin-right: 1rem;
@@ -23,8 +23,9 @@ main .homePage {
   background-color: grey;
 }
 .articles {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .prodArticle {
   margin: 0.65rem 0.25rem;
