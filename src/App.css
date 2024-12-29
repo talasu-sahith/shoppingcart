@@ -12,20 +12,11 @@ main .homePage {
 .filters {
   margin-right: 1rem;
 }
-.filters button {
-  border-color: transparent;
-  background-color: black;
-  color: white;
-  font-weight: 500;
-}
-.filters button:hover {
-  color: black;
-  background-color: grey;
-}
+
 .articles {
   width: 70%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .prodArticle {
   margin: 0.65rem 0.25rem;

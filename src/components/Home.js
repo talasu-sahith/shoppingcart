@@ -4,7 +4,7 @@ import Product from "./Product";
 
 const Home = () => {
   const { products } = useGlobalContext();
-  console.log(products);
+  //   console.log(products);
   return (
     <main>
       <div className="homePage">

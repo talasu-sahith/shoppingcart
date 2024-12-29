@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 // import faker from "faker";
 import { faker } from "@faker-js/faker";
 import reducer from "./reducer";
-import { AddToCart } from "./actions";
+import { AddToCart, Ascending, Descending, FastDelivery } from "./actions";
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
@@ -18,11 +18,33 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     products: products,
     cart: [],
+    fastdeliveryproducts: products.filter((item) => item.fastDelivery === true),
   });
   const handleAddcart = () => {
     dispatch({ type: AddToCart });
   };
-  return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+  const handleSortAsc = () => {
+    dispatch({ type: Ascending });
+  };
+  const handleSortDesc = () => {
+    dispatch({ type: Descending });
+  };
+  const handleFast = (val) => {
+    dispatch({ type: FastDelivery, payload: { val } });
+  };
+  return (
+    <AppContext.Provider
+      value={{
+        ...state,
+        handleAddcart,
+        handleSortAsc,
+        handleSortDesc,
+        handleFast,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export default AppProvider;

@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import { useGlobalContext } from "../context/context";
 const Filter = () => {
+  const { handleSortAsc, handleSortDesc, handleFast } = useGlobalContext();
   return (
     <div className="filters">
       <span className="title"> Filter</span>
@@ -11,16 +13,25 @@ const Filter = () => {
             id="ascending"
             name="sort"
             label="Ascending"
-            onClick={(e) => console.log(e.target.id)}
+            onClick={() => handleSortAsc()}
           />
           <Form.Check // prettier-ignore
             type="radio"
             name="sort"
             id="descending"
             label="Descending"
-            onClick={(e) => console.log(e.target.id)}
+            onClick={() => handleSortDesc()}
           />
         </Form>
+        <span>
+          <Form.Check
+            type="checkbox"
+            label="Fast Delivery"
+            id="fastDelivery"
+            // checked={fastDelivery}
+            onClick={(e) => handleFast(e.target.checked)}
+          />
+        </span>
       </span>
     </div>
   );
