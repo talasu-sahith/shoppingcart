@@ -32,6 +32,7 @@ main .homePage {
   width: 150px;
   height: 150px;
   object-fit: cover;
+  background-color: transparent;
 }
 .prodArticle p {
   color: green;
@@ -41,4 +42,8 @@ main .homePage {
 .prodArticle span {
   color: black;
   margin-left: 0.75rem;
+}
+
+.btn-cart {
+  background-color: lightcoral !important;
 }

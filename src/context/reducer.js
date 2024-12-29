@@ -24,6 +24,27 @@ const reducer = (state, action) => {
     let fastprod = state.fastdeliveryproducts;
     return { ...state, products: fastprod, fastdeliveryproducts: prod };
   }
+  if (action.type === AddToCart) {
+    // const prod = new Map(state.products.map((item) => [item.id, item]));
+    if (action.payload.incart === false) {
+      const cartprod = state.cart;
+      const prodId = action.payload.id;
+      console.log(prodId);
+      const prod = state.products.find((item) => item.fakeID === prodId);
+      cartprod.push(prod);
+      console.log(cartprod);
+      return { ...state, cart: cartprod };
+    } else {
+      const cartprod = state.cart;
+      const newcart = cartprod.filter(
+        (item) => item.fakeID != action.payload.id
+      );
+
+      console.log(newcart);
+      return { ...state, cart: newcart };
+    }
+    // return state;
+  }
   return state;
 };
 export default reducer;

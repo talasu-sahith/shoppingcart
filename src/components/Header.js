@@ -8,8 +8,10 @@ import {
 } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context/context";
 
 const Header = () => {
+  const { cart } = useGlobalContext();
   return (
     <Navbar bg="dark" variant="dark" style={{ height: "80px" }}>
       <Container>
@@ -27,10 +29,24 @@ const Header = () => {
           <Dropdown>
             <Dropdown.Toggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
-              <Badge bg="success">{10}</Badge>
+              <Badge bg="success">{cart.length}</Badge>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ minWidth: 370 }}>
-              <span style={{ padding: 10 }}>Cart is Empty</span>
+              <span style={{ padding: 10 }}>
+                {cart.map((item) => {
+                  return (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <p>{item.name}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  );
+                })}
+              </span>
             </Dropdown.Menu>
           </Dropdown>
         </Nav>

@@ -20,8 +20,8 @@ const AppProvider = ({ children }) => {
     cart: [],
     fastdeliveryproducts: products.filter((item) => item.fastDelivery === true),
   });
-  const handleAddcart = () => {
-    dispatch({ type: AddToCart });
+  const handleAddcart = (id, incart) => {
+    dispatch({ type: AddToCart, payload: { id, incart } });
   };
   const handleSortAsc = () => {
     dispatch({ type: Ascending });
