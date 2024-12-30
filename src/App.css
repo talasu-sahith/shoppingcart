@@ -10,7 +10,20 @@ main .homePage {
   flex-wrap: wrap;
 }
 .filters {
-  margin-right: 1rem;
+  width: 20%;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  margin: 10px;
+}
+.filters span {
+  margin-bottom: 40px;
+}
+.title {
+  font-size: 30px;
 }
 
 .articles {
@@ -21,7 +34,7 @@ main .homePage {
 .prodArticle {
   margin: 0.65rem 0.25rem;
   padding: 10px;
-  text-align: center;
+  /* text-align: center; */
   border: 2px solid grey;
   border-radius: 3%;
 }
@@ -29,8 +42,9 @@ main .homePage {
   text-align: center;
 }
 .prodArticle img {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
+  margin: 10px auto;
   object-fit: cover;
   background-color: transparent;
 }
