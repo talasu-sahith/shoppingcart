@@ -4,6 +4,7 @@ import {
   Descending,
   FastDelivery,
   RemoveCart,
+  ChangeQty,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -64,6 +65,14 @@ const reducer = (state, action) => {
     return {
       ...state,
       cart: state.cart.filter((item) => item.fakeID != action.payload.id),
+    };
+  }
+  if (action.type === ChangeQty) {
+    return {
+      ...state,
+      cart: state.cart.filter((c) =>
+        c.fakeID === action.payload.id ? (c.qty = action.payload.qty) : c.qty
+      ),
     };
   }
   throw new Error(`no Matching "${action.type}" - action Type`);

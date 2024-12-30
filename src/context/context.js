@@ -8,6 +8,7 @@ import {
   Descending,
   FastDelivery,
   RemoveCart,
+  ChangeQty,
 } from "./actions";
 export const AppContext = createContext();
 
@@ -43,6 +44,9 @@ const AppProvider = ({ children }) => {
   const handleRemoveCart = (id) => {
     dispatch({ type: RemoveCart, payload: { id } });
   };
+  const handleQty = (id, qty) => {
+    dispatch({ type: ChangeQty, payload: { id, qty } });
+  };
   return (
     <AppContext.Provider
       value={{
@@ -52,6 +56,7 @@ const AppProvider = ({ children }) => {
         handleSortDesc,
         handleFast,
         handleRemoveCart,
+        handleQty,
       }}
     >
       {children}
