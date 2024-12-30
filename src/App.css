@@ -28,8 +28,8 @@ main .homePage {
 
 .articles {
   width: 70%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
 }
 .prodArticle {
   margin: 0.65rem 0.25rem;

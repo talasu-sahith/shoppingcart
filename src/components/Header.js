@@ -34,33 +34,58 @@ const Header = () => {
               <Badge bg="success">{cart.length}</Badge>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ minWidth: 370 }}>
-              <span style={{ padding: 10 }}>
-                {cart?.map((item, i) => {
-                  return (
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                      key={i}
-                    >
-                      <p>{item.name}</p>
-                      <p>{item.price}</p>
+              <span style={{ padding: "5px auto" }}>
+                {cart.length > 0
+                  ? cart.map((item, i) => {
+                      return (
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginLeft: "20px",
+                          }}
+                          key={i}
+                        >
+                          <img
+                            src={item.image}
+                            style={{
+                              width: "40px",
+                              height: "40px",
+                              borderRadius: "50%",
+                              objectFit: "cover",
+                            }}
+                          ></img>
+                          <div
+                            style={{
+                              display: "flex",
+                              flex: "1",
+                              flexDirection: "column",
+                              marginLeft: "10px",
+                            }}
+                          >
+                            <span>{item.name}</span>
+                            <span>₹ {item.price.split(".")[0]}</span>
 
-                      <p>{item.qty}</p>
-
-                      <MdDelete
-                        fontSize="25px"
-                        style={{
-                          marginRight: "10px",
-                          cursor: "pointer",
-                          zIndex: "10",
-                        }}
-                        onClick={() => handleRemoveCart(item.fakeID)}
-                      />
-                    </div>
-                  );
-                })}
+                            {/* <span>{item.qty}</span> */}
+                          </div>
+                          <MdDelete
+                            fontSize="25px"
+                            style={{
+                              marginRight: "10px",
+                              cursor: "pointer",
+                              zIndex: "10",
+                            }}
+                            onClick={() => handleRemoveCart(item.fakeID)}
+                          />
+                        </div>
+                      );
+                    })
+                  : `Cart is Empty`}
+                <Link to={"/cart"}>
+                  <Button style={{ width: "95%", margin: "0 10px" }}>
+                    Go to Cart
+                  </Button>
+                </Link>
               </span>
             </Dropdown.Menu>
           </Dropdown>

@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { useGlobalContext } from "../context/context";
 import { Button, Card } from "react-bootstrap";
 import Rating from "./Rating";
-import { RemoveCart } from "../context/actions";
 
 const Product = (prod) => {
   const { image, name, price, fakeID, fastDelivery, ratings, inStock } = prod;
-  const [incart, setIncart] = useState(false);
   const { handleAddcart, handleRemoveCart, cart } = useGlobalContext();
   return (
     <div className="prodArticle">
@@ -15,7 +12,7 @@ const Product = (prod) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Subtitle style={{ paddingBottom: "10", marginBottom: "10px" }}>
-            ${price.split(".")[0]}
+            ₹ {price.split(".")[0]}
             {fastDelivery ? (
               <div>Fast Delivery</div>
             ) : (
