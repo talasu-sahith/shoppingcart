@@ -9,16 +9,36 @@ import {
 
 const reducer = (state, action) => {
   if (action.type === Ascending) {
-    let prod = state.products;
+    let prod = state.allProducts;
     prod.sort((a, b) => a.name.localeCompare(b.name));
 
-    return { ...state, products: prod };
+    return { ...state, allProducts: prod };
   }
   if (action.type === Descending) {
-    let prod = state.products;
+    let prod = state.allProducts;
     prod.sort((a, b) => b.name.localeCompare(a.name));
 
-    return { ...state, products: prod };
+    return { ...state, allProducts: prod };
+  }
+  if (action.type === "initialization") {
+    const newProducts = state.allProducts.slice(
+      state.currentPageNumber * state.postsPerPage - state.postsPerPage,
+      state.currentPageNumber * state.postsPerPage
+    );
+    return { ...state, products: newProducts };
+  }
+  if (action.type === "selectPagenumber") {
+    // console.log(action);
+    const newProducts = state.allProducts.slice(
+      action.payload.item * state.postsPerPage - state.postsPerPage,
+      action.payload.item * state.postsPerPage
+    );
+    return {
+      ...state,
+      products: newProducts,
+      currentPageNumber: action.payload.item,
+    };
+    // return state;
   }
   if (action.type === FastDelivery) {
     if (action.payload.val === true) {

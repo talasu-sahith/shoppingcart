@@ -27,7 +27,7 @@ main .homePage {
 }
 
 .articles {
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -35,7 +35,7 @@ main .homePage {
   margin: 0.65rem 0.25rem;
   padding: 10px;
   /* text-align: center; */
-  border: 2px solid grey;
+  /* border: 2px solid grey; */
   border-radius: 3%;
 }
 .prodArticle h4 {
