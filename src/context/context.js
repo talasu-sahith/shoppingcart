@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useReducer,
+} from "react";
 // import faker from "faker";
 import { faker } from "@faker-js/faker";
 import reducer from "./reducer";
@@ -31,7 +37,8 @@ const AppProvider = ({ children }) => {
     postsPerPage: 3,
     products: [],
   });
-  console.log(products);
+  const [showfilter, setShowfilter] = useState(false);
+  // console.log(products);
   const handleAddcart = (prod) => {
     dispatch({ type: AddToCart, payload: prod });
   };
@@ -68,6 +75,8 @@ const AppProvider = ({ children }) => {
         handleRemoveCart,
         handleQty,
         dispatch,
+        showfilter,
+        setShowfilter,
       }}
     >
       {children}

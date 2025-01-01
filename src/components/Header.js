@@ -7,16 +7,20 @@ import {
   Nav,
   Navbar,
 } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/context";
 import { MdDelete } from "react-icons/md";
 
 const Header = () => {
-  const { cart, handleRemoveCart } = useGlobalContext();
+  const { cart, handleRemoveCart, setShowfilter, showfilter } =
+    useGlobalContext();
   return (
     <Navbar bg="dark" variant="dark" style={{ height: "80px" }}>
       <Container>
+        <button className="nav-icon" onClick={() => setShowfilter(!showfilter)}>
+          <FaBars />
+        </button>
         <Navbar.Brand>
           <Link to="/">Shopping Cart</Link>
         </Navbar.Brand>

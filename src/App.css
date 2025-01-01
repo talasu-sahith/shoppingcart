@@ -18,6 +18,15 @@ main .homePage {
   flex-direction: column;
   height: 86vh;
   margin: 10px;
+  visibility: visible;
+  opacity: 1;
+  z-index: 0;
+}
+.hide-filters {
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  display: none;
 }
 .filters span {
   margin-bottom: 40px;
@@ -64,4 +73,43 @@ main .homePage {
 .cartPage {
   display: flex;
   flex-wrap: wrap;
+}
+
+.nav-icon {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 1.75rem;
+  transition: 0.2s ease-in-out all;
+  animation: bounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .nav-icon {
+    display: none;
+  }
+  .filters {
+    width: 20%;
+  }
+  .hide-filters {
+    visibility: visible;
+    opacity: 1;
+    z-index: 0;
+  }
 }

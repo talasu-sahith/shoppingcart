@@ -4,10 +4,11 @@ import { useGlobalContext } from "../context/context";
 import { Button } from "react-bootstrap";
 import Rating from "./Rating";
 const Filter = () => {
-  const { handleSortAsc, handleSortDesc, handleFast } = useGlobalContext();
+  const { handleSortAsc, handleSortDesc, handleFast, showfilter } =
+    useGlobalContext();
   const [rate, setRate] = useState(3);
   return (
-    <div className="filters">
+    <div className={showfilter ? `filters` : `filters hide-filters`}>
       <span className="title"> FilterProducts </span>
 
       <span>
